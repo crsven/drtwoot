@@ -4,7 +4,7 @@
  * */
  
 // Change these two lines to your user information.
-var UID = 10697232;
+var UID = 322715142;
 var SNAME = "drdrang";
 // The initial update looks back COUNT updates in your home timeline. Must be <= 200.
 var COUNT = 50;
@@ -127,7 +127,7 @@ function cmpID (a, b) {
 
 $.fn.gettweets = function(){
   return this.each(function(){
-    var list = $('ul.tweet_list').appendTo(this);
+    var list = $('ul.tweet_list').prependTo(this);
     var homeURL = BASE_URL['home'] + '?include_entities=1&count=' + COUNT;
     var mentionsURL = BASE_URL['mentions'] + '?include_entities=1&count=' + COUNT;
     var retweetsURL = BASE_URL['retweets'] + '?include_entities=1&count=' + COUNT;
@@ -224,7 +224,7 @@ $.fn.gettweets = function(){
                   theText = '<span class="spam">' + theText + '</span>' + ' <br /><em>Reported as spam</em>';
                   reportSpam(theScreenName);
                 }
-                list.append('<li id="msg-' + theID + '">' +
+                list.prepend('<li id="msg-' + theID + '">' +
                 '<a href="http://twitter.com/account/profile_image/' +
                 theScreenName +
                 '"><img class="profile_image" height="48" width="48" src="' + 
